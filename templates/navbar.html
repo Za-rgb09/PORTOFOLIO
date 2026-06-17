@@ -1,0 +1,140 @@
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top custom-cyber-nav">
+    <div class="container">
+
+        <a class="navbar-brand fw-bold text-uppercase" href="#">
+            <i class="fa-solid fa-terminal me-2 text-info"></i>AZ <span class="text-white">// PORTFOLIO</span>
+        </a>
+
+        <button class="navbar-toggler cyber-toggler" 
+                type="button"
+                data-bs-toggle="collapse" 
+                data-bs-target="#menu" 
+                aria-controls="menu" 
+                aria-expanded="false" 
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto align-items-center">
+
+                <li class="nav-item">
+                    <a href="/" class="nav-link cyber-nav-link">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/about" class="nav-link cyber-nav-link">About</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/skills" class="nav-link cyber-nav-link">Skills</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/projects" class="nav-link cyber-nav-link">Projects</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/certificates" class="nav-link cyber-nav-link">Certificates</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/contact" class="nav-link cyber-nav-link">Contact</a>
+                </li>
+
+                <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                    <button id="dark-btn" class="btn btn-cyber-toggle btn-sm" title="Toggle System Core">
+                        <i class="fa-solid fa-bolt text-info"></i>
+                    </button>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+<style>
+    /* Desain Utama Navbar Transparan Kaca */
+    .custom-cyber-nav {
+        background: rgba(6, 9, 19, 0.8) !important;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(0, 242, 254, 0.25);
+        box-shadow: 0 4px 30px rgba(0, 242, 254, 0.08);
+        transition: all 0.4s ease;
+        padding: 0.8rem 0;
+    }
+
+    /* Style teks menu navigasi */
+    .cyber-nav-link {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+        color: #94a3b8 !important;
+        position: relative;
+        padding: 0.5rem 1rem !important;
+        transition: color 0.3s ease;
+    }
+
+    .cyber-nav-link:hover, 
+    .cyber-nav-link:focus {
+        color: #00f2fe !important;
+        text-shadow: 0 0 8px rgba(0, 242, 254, 0.6);
+    }
+
+    /* Efek Animasi Garis Bawah Neon saat di-hover (Desktop) */
+    @media (min-width: 992px) {
+        .cyber-nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background: linear-gradient(90deg, #4facfe, #00f2fe);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+            box-shadow: 0 0 8px #00f2fe;
+        }
+
+        .cyber-nav-link:hover::after {
+            width: 80%;
+        }
+    }
+
+    /* Kustomisasi Toggler Mobile Menu */
+    .cyber-toggler {
+        border: 1px solid rgba(0, 242, 254, 0.4);
+        padding: 0.25rem 0.5rem;
+    }
+    
+    .cyber-toggler:focus {
+        box-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
+    }
+
+    /* Tombol Switcher Futuristik menggantikan icon bulan biasa */
+    .btn-cyber-toggle {
+        background: transparent;
+        border: 1px solid #00f2fe;
+        color: #00f2fe;
+        border-radius: 4px;
+        padding: 0.35rem 0.75rem;
+        box-shadow: 0 0 5px rgba(0, 242, 254, 0.3);
+        transition: all 0.3s ease;
+    }
+
+    .btn-cyber-toggle:hover {
+        background: #00f2fe;
+        color: #060913;
+        box-shadow: 0 0 15px #00f2fe;
+    }
+    
+    .btn-cyber-toggle i {
+        transition: transform 0.3s ease;
+    }
+    
+    .btn-cyber-toggle:hover i {
+        transform: scale(1.2);
+    }
+</style>

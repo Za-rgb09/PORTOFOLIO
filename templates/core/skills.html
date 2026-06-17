@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section id="skills-matrix-archive" class="py-5" style="min-height: calc(100vh - 160px);">
+    <div class="container" style="max-width: 950px;">
+        
+        <div class="text-center mb-5">
+            <h1 class="text-white font-orbitron mb-2 tracking-widest">
+                <i class="fa-solid fa-microchip text-info me-2"></i> SKILLS_MATRIX_CORE
+            </h1>
+            <p class="text-muted font-rajdhani tracking-wide uppercase">[SYSTEM_CAPABILITIES // LOADED]</p>
+            <div class="cyber-accent-line mx-auto"></div>
+        </div>
+
+        <div class="row g-4">
+            {% for skill in skills %}
+            <div class="col-md-6">
+                <div class="glass-card p-4">
+                    
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <strong class="text-white h5 mb-0 font-rajdhani fw-semibold tracking-wide">
+                            <i class="fa-solid fa-angles-right text-info me-2" style="font-size: 0.85rem;"></i>{{ skill.name }}
+                        </strong>
+                        <span class="cyber-glow-text fw-bold font-orbitron text-info" style="font-size: 1.05rem;">
+                            {{ skill.percentage }}%
+                        </span>
+                    </div>
+                    
+                    <div class="progress">
+                        <div class="progress-bar" 
+                             role="progressbar" 
+                             style="width: {{ skill.percentage }}%" 
+                             aria-valuenow="{{ skill.percentage }}" 
+                             aria-valuemin="0" 
+                             aria-valuemax="100">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</section>
+
+<style>
+    .font-orbitron { 
+        font-family: 'Orbitron', sans-serif; 
+    }
+    .font-rajdhani {
+        font-family: 'Rajdhani', sans-serif;
+    }
+
+    /* Garis Aksen Dekorasi */
+    .cyber-accent-line {
+        width: 80px;
+        height: 2px;
+        background: linear-gradient(90deg, #4facfe, #00f2fe);
+        box-shadow: 0 0 12px #00f2fe;
+    }
+
+    /* Efek Pendaran Teks Persentase */
+    .cyber-glow-text {
+        text-shadow: 0 0 8px rgba(0, 242, 254, 0.6);
+    }
+</style>
+
+{% endblock %}

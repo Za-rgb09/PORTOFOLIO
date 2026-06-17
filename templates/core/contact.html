@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section id="contact-terminal" class="py-5 d-flex align-items-center" style="min-height: calc(100vh - 160px);">
+    <div class="container" style="max-width: 750px;">
+        
+        <div class="text-center mb-5">
+            <h1 class="text-white font-orbitron mb-2 tracking-widest">
+                <i class="fa-solid fa-envelope text-info me-2"></i> ESTABLISH_CONNECTION
+            </h1>
+            <p class="text-muted font-rajdhani tracking-wide uppercase">[NETWORK_ROUTE // SECURE_PORTAL]</p>
+            <div class="cyber-accent-line mx-auto"></div>
+        </div>
+
+        <div class="glass-card p-4 p-md-5">
+            <form method="POST">
+                {% csrf_token %}
+
+                <div class="mb-4">
+                    <label class="form-label text-info font-orbitron" style="font-size: 0.85rem; letter-spacing: 1px;">
+                        [01] SENDER_NAME
+                    </label>
+                    <input type="text" 
+                           name="name" 
+                           class="form-control cyber-input" 
+                           placeholder="Enter your proxy or identity name..." 
+                           required>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label text-info font-orbitron" style="font-size: 0.85rem; letter-spacing: 1px;">
+                        [02] SENDER_EMAIL
+                    </label>
+                    <input type="email" 
+                           name="email" 
+                           class="form-control cyber-input" 
+                           placeholder="Enter secure routing address..." 
+                           required>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label text-info font-orbitron" style="font-size: 0.85rem; letter-spacing: 1px;">
+                        [03] TRANSMISSION_DATA
+                    </label>
+                    <textarea name="message" 
+                              rows="5" 
+                              class="form-control cyber-input" 
+                              placeholder="Write your encrypted message details here..." 
+                              required></textarea>
+                </div>
+
+                <div class="text-end pt-2">
+                    <button type="submit" class="btn btn-cyber-lg px-5">
+                        <i class="fa-solid fa-paper-plane me-2"></i> Transmit Packet
+                    </button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</section>
+
+<style>
+    .font-orbitron { 
+        font-family: 'Orbitron', sans-serif; 
+    }
+    .font-rajdhani {
+        font-family: 'Rajdhani', sans-serif;
+    }
+
+    /* Garis Aksen Dekorasi */
+    .cyber-accent-line {
+        width: 80px;
+        height: 2px;
+        background: linear-gradient(90deg, #4facfe, #00f2fe);
+        box-shadow: 0 0 12px #00f2fe;
+    }
+</style>
+
+{% endblock %}

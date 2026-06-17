@@ -1,0 +1,103 @@
+/* ==========================================================================
+   GLOBAL CONFIGURATION & SPACE BACKGROUND
+   ========================================================================== */
+body {
+    transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s ease;
+    background-color: #060913;
+    color: #e2e8f0;
+}
+
+/* Base Smooth Scrolling untuk navigasi navbar */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ==========================================================================
+   HERO CORE STRUCTURE
+   ========================================================================== */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 100px 0;
+}
+
+/* ==========================================================================
+   CYBER AVATAR & SCANNER GRAPHICS
+   ========================================================================== */
+.cyber-avatar-wrapper {
+    position: relative;
+    display: inline-block;
+    border: 2px solid #00f2fe;
+    box-shadow: 0 0 30px rgba(0, 242, 254, 0.25);
+    border-radius: 24px; /* Mengubah lingkaran biasa menjadi kotak melengkung modern */
+    overflow: hidden;
+    background: #0a192f;
+}
+
+.cyber-profile-img {
+    width: 320px;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+    transform: scale(1.01);
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* ==========================================================================
+   GLASSMORPHISM MATRIX STYLING
+   ========================================================================== */
+/* Menggantikan class card lama agar tembus pandang kaca */
+.glass-card {
+    background: rgba(10, 25, 47, 0.65) !important;
+    backdrop-filter: blur(14px) !important;
+    -webkit-backdrop-filter: blur(14px) !important;
+    border: 1px solid rgba(0, 242, 254, 0.18) !important;
+    box-shadow: 0 8px 32px 0 rgba(6, 9, 19, 0.4) !important;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
+    color: #f8fafc !important;
+}
+
+.glass-card:hover {
+    border-color: rgba(0, 242, 254, 0.5) !important;
+    box-shadow: 0 12px 40px rgba(0, 242, 254, 0.15) !important;
+    transform: translateY(-5px);
+}
+
+/* ==========================================================================
+   DYNAMIC PROGRESS BAR THEME
+   ========================================================================== */
+.progress {
+    background-color: rgba(24, 34, 54, 0.8) !important;
+    height: 8px !important;
+    border-radius: 10px !important;
+    overflow: overflow;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+}
+
+.progress-bar {
+    background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%) !important;
+    box-shadow: 0 0 12px #00f2fe !important;
+    border-radius: 10px !important;
+    font-size: 0px; /* Menyembunyikan text angka di dalam bar agar lebih minimalis */
+}
+
+/* ==========================================================================
+   SYSTEM CORE / SYSTEM SWITCH COMPATIBILITY
+   ========================================================================== */
+/* Mengubah skema warna .dark-mode lama menjadi mode Overdrive Core Neon */
+.dark-mode {
+    background-color: #03050a;
+}
+
+.dark-mode .glass-card {
+    background: rgba(4, 7, 14, 0.85) !important;
+    border-color: rgba(0, 242, 254, 0.3) !important;
+    box-shadow: 0 0 25px rgba(0, 242, 254, 0.12) !important;
+}
+
+/* Menjinakkan class bawaan Bootstrap bg-light agar menyatu ke latar kegelapan */
+.bg-light {
+    background-color: transparent !important;
+}

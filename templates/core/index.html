@@ -1,0 +1,309 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section id="home" class="hero-section d-flex align-items-center">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            
+            <div class="col-lg-7 order-2 order-lg-1 text-center text-lg-start">
+                <span class="badge border border-info text-info mb-3 px-3 py-2 text-uppercase tracking-wider font-orbitron" style="font-size: 0.8rem; background: rgba(0, 242, 254, 0.05);">
+                    <i class="fa-solid fa-satellite-dish me-2 pulse-slow"></i> System Online
+                </span>
+                
+                <h1 class="display-3 fw-bold text-white mb-2 font-orbitron">
+                    Hi, I'm <span class="cyber-glow-text">{{ hero.name }}</span>
+                </h1>
+
+                <h3 class="mb-4 text-info fw-semibold tracking-wide" style="font-family: 'Rajdhani', sans-serif;">
+                    // {{ hero.title }}
+                </h3>
+
+                <p class="text-muted mb-4 lead" style="max-width: 600px; font-size: 1.1rem; line-height: 1.7;">
+                    {{ hero.subtitle }}
+                </p>
+
+                <a href="{{ hero.cv.url }}" class="btn btn-cyber-lg" download>
+                    <i class="fa-solid fa-cloud-arrow-down me-2"></i> Download CV.exe
+                </a>
+            </div>
+
+            <div class="col-lg-5 order-1 order-lg-2 text-center">
+                <div class="cyber-avatar-wrapper">
+                    <img src="{{ hero.photo.url }}" class="img-fluid cyber-profile-img" alt="{{ hero.name }}">
+                    <div class="scanner-line"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<div class="cyber-hr"></div>
+
+<section id="skills" class="py-4">
+    <div class="container">
+        <h2 class="text-center mb-5 text-white font-orbitron">
+            <i class="fa-solid fa-microchip text-info me-2"></i> SKILLS_MATRIX
+        </h2>
+
+        <div class="row g-4">
+            {% for skill in skills %}
+            <div class="col-md-6">
+                <div class="glass-card p-4">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <strong class="text-white h5 mb-0" style="font-family: 'Rajdhani'; font-weight: 600;">
+                            <i class="fa-solid fa-angles-right text-info me-2" style="font-size: 0.85rem;"></i>{{ skill.name }}
+                        </strong>
+                        <span class="cyber-glow-text fw-bold font-orbitron">{{ skill.percentage }}%</span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: {{ skill.percentage }}%" aria-valuenow="{{ skill.percentage }}" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<div class="cyber-hr"></div>
+
+<section id="projects" class="py-4">
+    <div class="container">
+        <h2 class="text-center mb-5 text-white font-orbitron">
+            <i class="fa-solid fa-cubes text-info me-2"></i> DEPLOYED_PROJECTS
+        </h2>
+
+        <div class="row g-4">
+            {% for project in projects %}
+            <div class="col-md-4">
+                <div class="card glass-card h-100 d-flex flex-column justify-content-between">
+                    <div class="project-img-container">
+                        <img src="{{ project.image.url }}" class="card-img-top img-fluid" alt="{{ project.title }}">
+                    </div>
+                    <div class="card-body d-flex flex-column justify-content-between p-4">
+                        <div>
+                            <h5 class="card-title text-white fw-bold font-orbitron mb-3">{{ project.title }}</h5>
+                            <p class="card-text text-muted mb-4" style="font-size: 0.95rem; line-height: 1.6;">
+                                {{ project.description|truncatewords:20 }}
+                            </p>
+                        </div>
+                        <div>
+                            <a href="{{ project.github }}" class="btn btn-cyber-sm w-100" target="_blank">
+                                <i class="fa-brands fa-github me-2"></i> Access Source
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<div class="cyber-hr"></div>
+
+<section id="certificates" class="py-4">
+    <div class="container">
+        <h2 class="text-center mb-5 text-white font-orbitron">
+            <i class="fa-solid fa-award text-info me-2"></i> VALIDATED_CREDENTIALS
+        </h2>
+
+        <div class="row g-4">
+            {% for cert in certificates %}
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="cert-wrapper glass-card p-2 text-center">
+                    <img src="{{ cert.image.url }}" class="img-fluid rounded cyber-cert-img" alt="Certificate Image">
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<div class="cyber-hr"></div>
+
+<section id="contact" class="py-4 mb-4">
+    <div class="container" style="max-width: 750px;">
+        <h2 class="text-center mb-5 text-white font-orbitron">
+            <i class="fa-solid fa-envelope text-info me-2"></i> ESTABLISH_CONNECTION
+        </h2>
+
+        <div class="glass-card p-4 p-md-5">
+            <form method="POST">
+                {% csrf_token %}
+
+                <div class="mb-4">
+                    <label class="form-label text-info font-orbitron" style="font-size: 0.85rem;">[01] SENDER_NAME</label>
+                    <input type="text" name="name" class="form-control cyber-input" placeholder="Enter your proxy name..." required>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label text-info font-orbitron" style="font-size: 0.85rem;">[02] SENDER_EMAIL</label>
+                    <input type="email" name="email" class="form-control cyber-input" placeholder="Enter secure routing email..." required>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label text-info font-orbitron" style="font-size: 0.85rem;">[03] ENCRYPTED_MESSAGE</label>
+                    <textarea name="message" rows="5" class="form-control cyber-input" placeholder="Type transmission details here..." required></textarea>
+                </div>
+
+                <div class="text-end">
+                    <button type="submit" class="btn btn-cyber-lg px-5">
+                        <i class="fa-solid fa-paper-plane me-2"></i> Transmit Packet
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<style>
+    .font-orbitron { 
+        font-family: 'Orbitron', sans-serif; 
+    }
+    
+    /* Hero Space Alignment */
+    .hero-section {
+        padding: 6rem 0 2rem 0;
+        min-height: calc(100vh - 80px);
+    }
+
+    /* Scanner Profile Image Effect */
+    .cyber-avatar-wrapper {
+        position: relative;
+        display: inline-block;
+        border: 2px solid var(--neon-cyan);
+        box-shadow: 0 0 25px rgba(0, 242, 254, 0.3);
+        border-radius: 16px;
+        overflow: hidden;
+    }
+    
+    .cyber-profile-img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.5s ease;
+    }
+    
+    .cyber-avatar-wrapper:hover .cyber-profile-img {
+        transform: scale(1.05);
+    }
+
+    /* Efek garis laser scan bergerak turun-naik */
+    .scanner-line {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: var(--neon-cyan);
+        box-shadow: 0 0 12px var(--neon-cyan);
+        animation: cyber-scan 4s linear infinite;
+        opacity: 0.7;
+    }
+
+    @keyframes cyber-scan {
+        0% { top: 0%; }
+        50% { top: 100%; }
+        100% { top: 0%; }
+    }
+
+    /* Project Cards Aspect Crop */
+    .project-img-container {
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+        border-bottom: 1px solid var(--glass-border);
+    }
+    
+    .project-img-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    /* Glassmorphism Cards layout */
+    .glass-card {
+        background: var(--glass-bg);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid var(--glass-border);
+        border-radius: 12px;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        overflow: hidden;
+    }
+
+    /* Buttons Architecture */
+    .btn-cyber-lg, .btn-cyber-sm {
+        background: transparent;
+        color: var(--neon-cyan);
+        font-family: 'Orbitron', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        border: 1px solid var(--neon-cyan);
+        box-shadow: 0 0 8px rgba(0, 242, 254, 0.2);
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    
+    .btn-cyber-lg { padding: 0.8rem 2rem; font-size: 1rem; border-radius: 6px; }
+    .btn-cyber-sm { padding: 0.5rem 1.2rem; font-size: 0.85rem; border-radius: 4px; }
+
+    .btn-cyber-lg:hover, .btn-cyber-sm:hover {
+        background: linear-gradient(90deg, var(--neon-blue), var(--neon-cyan));
+        color: #060913 !important;
+        box-shadow: 0 0 20px var(--neon-cyan);
+        transform: translateY(-2px);
+    }
+
+    /* Certificate Visual Enchancements */
+    .cyber-cert-img {
+        transition: all 0.4s ease;
+        filter: grayscale(30%) contrast(110%);
+    }
+    
+    .cert-wrapper:hover .cyber-cert-img {
+        filter: grayscale(0%) contrast(100%);
+        transform: scale(1.03);
+    }
+
+    /* Cyber Inputs Forms styling */
+    .cyber-input {
+        background: rgba(6, 9, 19, 0.6) !important;
+        border: 1px solid rgba(0, 242, 254, 0.2) !important;
+        color: #e2e8f0 !important;
+        border-radius: 6px !important;
+        padding: 0.75rem 1rem;
+        font-family: 'Rajdhani', sans-serif;
+        font-size: 1.1rem;
+        transition: all 0.3s ease !important;
+    }
+
+    .cyber-input:focus {
+        border-color: var(--neon-cyan) !important;
+        box-shadow: 0 0 12px rgba(0, 242, 254, 0.3) !important;
+        background: rgba(10, 25, 47, 0.8) !important;
+    }
+    
+    .cyber-input::placeholder {
+        color: #475569 !important;
+    }
+
+    /* Extra Animations */
+    .pulse-slow { 
+        animation: cyber-pulse 3s infinite; 
+    }
+
+    @keyframes cyber-pulse {
+        0%, 100% { 
+            opacity: 0.5; 
+        }
+        50% { 
+            opacity: 1; 
+        }
+    }
+</style>
+
+{% endblock %}

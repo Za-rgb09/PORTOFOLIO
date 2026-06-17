@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section id="projects-archive" class="py-5" style="min-height: calc(100vh - 160px);">
+    <div class="container">
+        
+        <div class="text-center mb-5">
+            <h1 class="text-white font-orbitron mb-2 tracking-widest">
+                <i class="fa-solid fa-folder-open text-info me-2"></i> DEPLOYED_ARCHIVES
+            </h1>
+            <p class="text-muted font-rajdhani tracking-wide uppercase">[REPOSITORY // ACCESS_GRANTED]</p>
+            <div class="cyber-accent-line mx-auto"></div>
+        </div>
+
+        <div class="row g-4">
+            {% for project in projects %}
+            <div class="col-md-6 col-lg-4">
+                <div class="card glass-card h-100 d-flex flex-column justify-content-between">
+                    
+                    <div class="project-img-container">
+                        <img src="{{ project.image.url }}" class="card-img-top img-fluid" alt="{{ project.title }}">
+                    </div>
+                    
+                    <div class="card-body d-flex flex-column justify-content-between p-4">
+                        <div class="mb-4">
+                            <span class="text-info font-orbitron d-block mb-2" style="font-size: 0.75rem;">
+                                // DEPLOYED_ID: 00{{ forloop.counter }}
+                            </span>
+                            <h5 class="card-title text-white fw-bold font-orbitron mb-3">
+                                {{ project.title }}
+                            </h5>
+                            <p class="card-text text-muted" style="font-size: 0.95rem; line-height: 1.6; text-align: justify;">
+                                {{ project.description }}
+                            </p>
+                        </div>
+                        
+                        <div>
+                            <a href="{{ project.github }}" class="btn btn-cyber-sm w-100" target="_blank">
+                                <i class="fa-brands fa-github me-2"></i> Access Source Code
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</section>
+
+<style>
+    .font-orbitron { 
+        font-family: 'Orbitron', sans-serif; 
+    }
+    .font-rajdhani {
+        font-family: 'Rajdhani', sans-serif;
+    }
+
+    /* Garis Aksen Dekorasi */
+    .cyber-accent-line {
+        width: 80px;
+        height: 2px;
+        background: linear-gradient(90deg, #4facfe, #00f2fe);
+        box-shadow: 0 0 12px #00f2fe;
+    }
+</style>
+
+{% endblock %}

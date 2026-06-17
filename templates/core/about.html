@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section id="about-protocol" class="py-5 d-flex align-items-center" style="min-height: calc(100vh - 160px);">
+    <div class="container">
+        
+        <div class="text-center mb-5">
+            <h2 class="text-white font-orbitron mb-2 tracking-widest">
+                <i class="fa-solid fa-user-shield text-info me-2"></i> IDENTITY_PROTOCOL
+            </h2>
+            <div class="cyber-accent-line mx-auto"></div>
+        </div>
+
+        <div class="glass-card p-4 p-md-5 max-w-lg mx-auto">
+            <div class="row align-items-center g-4 g-md-5">
+
+                <div class="col-md-4 text-center">
+                    <div class="cyber-avatar-wrapper shadow-lg">
+                        <img src="{{ hero.photo.url }}" class="img-fluid cyber-profile-img" alt="{{ hero.name }}">
+                        <div class="scanner-line"></div>
+                    </div>
+                </div>
+
+                <div class="col-md-8 text-center text-md-start">
+                    <span class="text-info font-orbitron mb-2 d-inline-block tracking-wider" style="font-size: 0.85rem;">
+                        [SUBJECT // INITIALIZATION_SUCCESS]
+                    </span>
+                    
+                    <h2 class="text-white fw-bold font-orbitron mb-2 tracking-wide">
+                        {{ hero.name }}
+                    </h2>
+
+                    <h5 class="text-info fw-semibold mb-4 tracking-wider" style="font-family: 'Rajdhani', sans-serif; font-size: 1.25rem;">
+                        &gt;_ {{ hero.title }}
+                    </h5>
+
+                    <div class="text-muted lead-custom p-3 rounded" style="background: rgba(6, 9, 19, 0.4); border-left: 3px solid var(--neon-cyan, #00f2fe); line-height: 1.8;">
+                        {{ hero.subtitle }}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<style>
+    .font-orbitron { 
+        font-family: 'Orbitron', sans-serif; 
+    }
+    
+    /* Garis Dekoration Judul Modul */
+    .cyber-accent-line {
+        width: 60px;
+        height: 2px;
+        background: linear-gradient(90deg, #4facfe, #00f2fe);
+        box-shadow: 0 0 10px #00f2fe;
+    }
+
+    /* Set Batas Maksimal Lebar Kontainer Kartu */
+    .max-w-lg {
+        max-width: 950px;
+    }
+
+    /* Kustomisasi Paragraf About */
+    .lead-custom {
+        font-family: 'Rajdhani', sans-serif;
+        font-size: 1.15rem;
+        color: #94a3b8;
+    }
+</style>
+
+{% endblock %}
